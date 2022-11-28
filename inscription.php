@@ -10,20 +10,40 @@
   $search = "SELECT * FROM utilisateurs";
   $query = $conn->query($search);
   $users = $query->fetch_all();
-   echo '<pre>';
-    var_dump($users);
-    echo '</pre>';
+   //echo '<pre>';
+    //var_dump($users);
+    //echo '</pre>';
 
      
   //créer les conditions pour remplir les champs
    
-    /*if (isset($_POST['submit'])){ 
-    } 
-        if ($_conn->query("utilisateurs")){
+    if (isset($_POST['submit'])){ 
+    }
+    $mmuser = false;
+    $validuser = false;
+
+    foreach ($users as $user){
+        $dbLogin = $user[1];
+        $dbpassword = $user[4];
+        if (isset($_POST['login']) && ($dbLogin == $_POST['login'])){
+            $mmuser = true; 
+        }
+    }
+
+    if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["login"]) && isset($_POST["password"]) && isset($_POST["comfirm_password"])) {
+        $validuser = true;
+    }
+
+
+        /*if ($_conn->query("utilisateurs")){
         $_POST['prenom'] && $_POST["nom"] && $_POST["login"] && $_POST["password"] && $_POST["comfirm_password"] == TRUE ;
       
-        }
-            elseif($conn->query["login"]){ 
+        }*/
+        /*if (empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['login']) || empty($_POST['password']) || empty($_POST['comfirm_password']));{
+          return true;
+        }*/
+       
+           /* elseif($conn->query["login"]){ 
                 $_POST["login"] == 0;  
                 $_POST["login"] == 1;
                 1 == false;
@@ -41,29 +61,30 @@
             }*/
 
         //création variable
-        $prenom = $_POST["prenom"];
-        $nom = $_POST["nom"];
-        $login = $_POST["login"];
-        $password = $_POST["password"];
-        $comfirm_password = $_POST["comfirm_password"];
+        
+        
+        if($validuser && !$mmuser){
 
-        
-        
-        
-            
-        
-        
-
-        
-        $sql = "INSERT INTO `utilisateurs` (prenom, nom, login, password) VALUES('$prenom', '$nom', '$login', '$password')";
+            $prenom = $_POST["prenom"];
+            $nom = $_POST["nom"];
+            $login = $_POST["login"];
+            $password = $_POST["password"];
+            $comfirm_password = $_POST["comfirm_password"];
 
 
-        if ($conn->query($sql) === TRUE) {
-            echo "les nouveaux enregistrements ajoutés avec succés";
-        } else {
-            echo "Erreur: " . $sql . "
-        " . $conn->error;
+
+            $sql = "INSERT INTO `utilisateurs` (prenom, nom, login, password) VALUES('$prenom', '$nom', '$login', '$password')";
+
+
+            if ($conn->query($sql) === TRUE) {
+                echo "les nouveaux enregistrements ajoutés avec succés";
+            } else {
+                echo "Erreur: " . $sql . "
+            " . $conn->error;
+            }
+
         }
+        $conn->close();
         
         /*if ($_POST['password'] === $_POST['comfirm_password']) {
                 echo "succes" ; 
@@ -71,7 +92,7 @@
             else {
                 echo "failled";  
                 }*/
-        $conn->close();
+      
   
  ?>
 
@@ -105,7 +126,7 @@
             <input type="text" id="login" name='login'/>
             <input type="password" id="password" name='password' minlength="3" required/>
             <input type="password" id="comfirm_password" name='comfirm_password' minlength="3" required/>
-            <input type="submit" id="button" name='button'/>
+            <input type="submit" id="button" name='submit'/>
         </tbody>
     </body>
 </html>
