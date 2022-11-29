@@ -1,0 +1,24 @@
+body {
+    background-color:  rgb(135, 180, 124);
+}
+
+label, table, header, th, td {
+    
+    border: 2px solid skyblue;
+    border-collapse: collapse;
+    font-family: 'Bree Serif', serif;
+    
+    }
+
+    th, tbody {
+    
+    padding: 8px;
+    
+    }
+    
+    th {
+    
+    background-color: rgb(175, 231, 241);
+    
+    }
+    

@@ -1,0 +1,28 @@
+body {
+    background-color:  rgb(135, 180, 124);
+    font-family: 'Bree Serif', serif;
+}
+
+/*label, thead, th{
+    border: 2px solid skyblue;
+    border-collapse: collapse;
+    
+    }*/
+    
+    thead, th {
+       
+        padding: 8px;
+    
+    }
+    
+
+.mama01{
+    display: flex;
+    flex-direction: column ;
+}
+
+.son01 th{
+    
+    align-items: center;
+    justify-content: space-around;
+}

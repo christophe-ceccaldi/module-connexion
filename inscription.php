@@ -3,9 +3,7 @@
 // Créer une conexion
     $conn = new mysqli("localhost", "root", "", "moduleconnexion");
     // verifier la connexion
-/*if ($conn->connect_error) {
-    die("La connexion a échouée: " . $conn->connect_error);
-  }*/
+
     
   $search = "SELECT * FROM utilisateurs";
   $query = $conn->query($search);
@@ -35,31 +33,6 @@
     }
 
 
-        /*if ($_conn->query("utilisateurs")){
-        $_POST['prenom'] && $_POST["nom"] && $_POST["login"] && $_POST["password"] && $_POST["comfirm_password"] == TRUE ;
-      
-        }*/
-        /*if (empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['login']) || empty($_POST['password']) || empty($_POST['comfirm_password']));{
-          return true;
-        }*/
-       
-           /* elseif($conn->query["login"]){ 
-                $_POST["login"] == 0;  
-                $_POST["login"] == 1;
-                1 == false;
-                //echo "login deja utilisé";
-                 
-            }
-            elseif($conn->query["password"]){
-                $_POST["password"] == 0 ;
-                $_POST["password"] == 1;
-                1 == false;
-            }
-            else(["password"] === ["comfirm_password"]);{
-                $conn === $sql;
-
-            }*/
-
         //création variable
         
         
@@ -78,21 +51,19 @@
 
             if ($conn->query($sql) === TRUE) {
                 echo "les nouveaux enregistrements ajoutés avec succés";
+                header("Location: http://module-connexion/connexion.php");
+                die();
             } else {
                 echo "Erreur: " . $sql . "
             " . $conn->error;
+           
             }
 
         }
+        
         $conn->close();
         
-        /*if ($_POST['password'] === $_POST['comfirm_password']) {
-                echo "succes" ; 
-                }
-            else {
-                echo "failled";  
-                }*/
-      
+        
   
  ?>
 
@@ -102,31 +73,39 @@
 <!DOCTYPE html>
 <html lang="FR">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inscription</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="inscription.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+        <title>inscriptions</title>
   </head>
-  <body>
-    
-        
-        <thead>
-            <th>prenom</th>
-            <th>nom</th>
-            <th>login</th>
-            <th>password</th>
-            <th>confirm password</th>
-
-        </thead>
-        <tbody>
-            <form method="post">
-            <label>inscription</label>
-            <input type="text" id="prenom" name='prenom'/>
-            <input type="text" id="nom" name='nom'/>
-            <input type="text" id="login" name='login'/>
-            <input type="password" id="password" name='password' minlength="3" required/>
-            <input type="password" id="comfirm_password" name='comfirm_password' minlength="3" required/>
-            <input type="submit" id="button" name='submit'/>
-        </tbody>
+    <body class ="mama01">
+        <table>
+            <thead class ="son01">
+                <th>prenom</th>
+                <th>nom</th>
+                <th>login</th>
+                <th>password</th>
+                <th>confirm password</th>
+            </thead>
+            
+            <tbody>
+                <form method="post">
+                <label>inscriptions</label>
+                <input type="text" id="prenom" name='prenom'/>
+                <input type="text" id="nom" name='nom'/>
+                <input type="text" id="login" name='login'/>
+                <input type="password" id="password" name='password' minlength="3" required/>
+                <input type="password" id="comfirm_password" name='comfirm_password' minlength="3" required/>
+                <input type="submit" id="button" name='submit'/>
+            </tbody>
+        </table>
     </body>
 </html>
+    
+      
+           
+    
