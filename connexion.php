@@ -47,17 +47,21 @@ if ($validuser) {
   </head>
   <body>
    
-        <thead>
-            <th>login</th>
-            <th>password</th>
+    <h2>connexion</h2>
+        
+      <form method="post">
+        <label>
+          <span>Login</span>             
+          <input type="text" id="login" name='login'/>
+        </label>
 
-        </thead>
-        <tbody>
-            <form method="post">
-            <label>connexion</label>
-            <input type="text" id="login" name='login'/>
-            <input type="text" id="password" name='password' minlength="3" required/>
-            <input type="submit" id="button" name='button'/>
-        </tbody>
-    </body>
+        <label>
+          <span>Password</span>             
+          <input type="password" id="password" name='password' minlength="3" required/>
+        </label>
+          
+          <input type="submit" id="button" name='button'/>
+      </form>
+          
+  </body>
 </html>

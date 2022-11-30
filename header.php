@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <title>header</title>
   </head>
   <body>
         <header>
             <nav>
-                <li>
-                    <ul>news</ul>
-                    <ul>connexion</ul>
-                    <ul>login</ul>
-                </li>
+                <ul>
+                    <li><a href="http://localhost/module-connexion/inscription.php">Inscriptions</a></li>
+                    <li><a href="http://localhost/module-connexion/connexion.php">Connexion</a></li>
+                    <li>login</li>
+                </ul >
             </nav>
         </header>
-        <!--<thead>
-
-        </thead>
-        <tbody>
-            <form method="get">
-            <label> boutton reset</label>
-            <input type="text" id="nom" name='nom'/>
-            <input type="submit" id="button" name='reset'/>
-        </tbody>-->
+       
     </body>
 </html>

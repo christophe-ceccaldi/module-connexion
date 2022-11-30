@@ -1,5 +1,5 @@
 body {
-    background-color:  rgb(135, 180, 124);
+    background-color: rgb(158 173 177);
     font-family: 'Bree Serif', serif;
 }
 
@@ -8,6 +8,11 @@ body {
     border-collapse: collapse;
     
     }*/
+    form{
+        display: flex;
+        flex-direction: column;
+
+    }
     
     thead, th {
        
@@ -18,7 +23,18 @@ body {
 
 .mama01{
     display: flex;
-    flex-direction: column ;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+form{
+    width: min-content;
+}
+label span{
+    width: 100px;
+    display: inline-block;
+
 }
 
 .son01 th{

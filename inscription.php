@@ -83,7 +83,8 @@
         <title>inscriptions</title>
   </head>
     <body class ="mama01">
-        <table>
+
+        <!-- <table>
             <thead class ="son01">
                 <th>prenom</th>
                 <th>nom</th>
@@ -93,16 +94,39 @@
             </thead>
             
             <tbody>
-                <form method="post">
-                <label>inscriptions</label>
+                </tbody>
+            </table> -->
+
+
+        <h2>inscriptions</h2>
+
+        <form method="post">
+            <label>
+                <span>Prenom</span>             
                 <input type="text" id="prenom" name='prenom'/>
+            </label>
+            
+            <label>
+                <span>Nom</span>
                 <input type="text" id="nom" name='nom'/>
+            </label>
+
+            <label>
+                <span>Login</span>
                 <input type="text" id="login" name='login'/>
+            </label>
+            
+            <label>
+                <span>Password</span>
                 <input type="password" id="password" name='password' minlength="3" required/>
+            </label>
+
+            <label>
+                <span>Comfirmpassword</span>
                 <input type="password" id="comfirm_password" name='comfirm_password' minlength="3" required/>
+            </label>
                 <input type="submit" id="button" name='submit'/>
-            </tbody>
-        </table>
+            </form>
     </body>
 </html>
     
