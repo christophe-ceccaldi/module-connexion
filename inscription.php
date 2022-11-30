@@ -14,58 +14,59 @@
 
      
   //créer les conditions pour remplir les champs
-   
+    //appuyer sur le bouton envoyer//
     if (isset($_POST['submit'])){ 
     }
-    $mmuser = false;
-    $validuser = false;
-
-    foreach ($users as $user){
-        $dbLogin = $user[1];
-        $dbpassword = $user[4];
-        if (isset($_POST['login']) && ($dbLogin == $_POST['login'])){
-            $mmuser = true; 
-        }
-    }
-
-    if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["login"]) && isset($_POST["password"]) && isset($_POST["comfirm_password"])) {
-        $validuser = true;
-    }
-
-
-        //création variable
-        
-        
-        if($validuser && !$mmuser){
-
-            $prenom = $_POST["prenom"];
-            $nom = $_POST["nom"];
-            $login = $_POST["login"];
-            $password = $_POST["password"];
-            $comfirm_password = $_POST["comfirm_password"];
-
-
-
-            $sql = "INSERT INTO `utilisateurs` (prenom, nom, login, password) VALUES('$prenom', '$nom', '$login', '$password')";
-
-
-            if ($conn->query($sql) === TRUE) {
-                echo "les nouveaux enregistrements ajoutés avec succés";
-                header("Location: http://module-connexion/connexion.php");
-                die();
-            } else {
-                echo "Erreur: " . $sql . "
-            " . $conn->error;
-           
+            //création variale pour même utilisateur et pour utilisateur valide//
+            $mmuser = false;
+            $validuser = false;
+            // vérifier pour chaque utilisateurs ajouter que le login et le mot de passe n'existe pas//
+            foreach ($users as $user){
+                $dbLogin = $user[1];
+                $dbpassword = $user[4];
+                if (isset($_POST['login']) && ($dbLogin == $_POST['login'])){
+                    $mmuser = true; 
+                }
+            }
+            //Vérifie si tout les champs sont remplie alors c'est un utilisateur valide// 
+            if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["login"]) && isset($_POST["password"]) && isset($_POST["comfirm_password"])) {
+                $validuser = true;
             }
 
-        }
+
         
+            
+            //si l'utilisateur est différent d'un utilisateur déja existant//
+            if($validuser && !$mmuser){
+                //création variable
+                $prenom = $_POST["prenom"];
+                $nom = $_POST["nom"];
+                $login = $_POST["login"];
+                $password = $_POST["password"];
+                $comfirm_password = $_POST["comfirm_password"];
+
+
+                //puisques toute les conditions sont remplie alors insère les données dans la DB du nouvel utilisateur//
+                $sql = "INSERT INTO `utilisateurs` (prenom, nom, login, password) VALUES('$prenom', '$nom', '$login', '$password')";
+
+
+                if ($conn->query($sql) === TRUE) {
+                    echo "les nouveaux enregistrements ajoutés avec succés";
+                    header("Location: http://module-connexion/connexion.php");
+                    die();
+                } else {
+                    echo "Erreur: " . $sql . "
+                " . $conn->error;
+            
+                }
+
+            }
+   
         $conn->close();
         
         
   
- ?>
+?>
 
 
 
@@ -84,22 +85,11 @@
   </head>
     <body class ="mama01">
 
-        <!-- <table>
-            <thead class ="son01">
-                <th>prenom</th>
-                <th>nom</th>
-                <th>login</th>
-                <th>password</th>
-                <th>confirm password</th>
-            </thead>
-            
-            <tbody>
-                </tbody>
-            </table> -->
+        
 
 
         <h2>inscriptions</h2>
-
+       
         <form method="post">
             <label>
                 <span>Prenom</span>             

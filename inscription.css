@@ -2,6 +2,9 @@ body {
     background-color: rgb(158 173 177);
     font-family: 'Bree Serif', serif;
 }
+.erreur{
+    background-color: tomato;
+}
 
 /*label, thead, th{
     border: 2px solid skyblue;
