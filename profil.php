@@ -1,8 +1,34 @@
 <?php
 // Créer une conexion
     $conn = new mysqli("localhost", "root", "", "moduleconnexion");
-//remplir les inputs de l'utilisateur existant//
-//utiliser id de la DB pour savoir si user enregistrer
+
+//vérifier que l'utilisateur possède un login ds la DB pour savoir si user enregistrer(query pour fetch_all DB)//
+//récupérer les login dans la DB
+$search = "SELECT * FROM utilisateurs WHERE ";
+$query = $conn->query($search);
+$users = $query->fetch_all();
+//echo '<pre>';
+var_dump($users);
+//echo '</pre>';
+//création variable validusser//
+//$dblogin = $users[0];
+
+
+//pour chaque utilisateurs qui possède un login autorisent les a modifier leurs profils//
+foreach($users as $user){
+    $dbLogin = $user[0][0];
+    $validuser = $dbLogin;
+    if (isset($_POST[`login`]) && ($dbLogin == $_POST[`login`])){
+        $validuser = true; 
+    }
+}
+   echo $validuser ;
+//verifie que  SI le login n'existe pas deja dans la DB(isset)//
+/*if (condition)
+# code...
+
+si les conditions présédente sont vérifier alors autorise l'utilisateur à modifier ses données
+UPDATE "utilisateurs" SET "prenom", "nom", ou autres WHERE login =2*/
 ?>
 
 <!DOCTYPE html>
