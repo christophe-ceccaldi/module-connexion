@@ -1,34 +1,43 @@
 <?php
 session_start();
-$_SESSION['admin'] = false;
-$_SESSION['loggedIn'] = false;
+//$_SESSION['admin'] = false;
+//$_SESSION['loggedIn'] = false;
 
 $validuser = false;
-if (isset($_POST["login"]) && isset($_POST["password"])) {
+if (isset($_GET["login"]) && isset($_GET["password"])) {
   $validuser = true;
 }
 
-//if (isset($_POST))
+//var_dump($_GET);
 
 if ($validuser) {
-  $login = $_POST["login"];
-  $password = $_POST["password"];
+  $login = $_GET["login"];
+  $password = $_GET["password"];
 
 
   $conn = new mysqli("localhost", "root", "", "moduleconnexion");
   $sql = "SELECT `login`, `password` FROM utilisateurs WHERE `login` = '$login' AND `password` = '$password'";
+  $result = $conn->query($sql);
+var_dump($result);
 
-  if ($conn->query($sql)) {
-    $_SESSION['loggedIn'] = true;
+
+  if  ($result->num_rows > 0){
+
+  // $_SESSION['loggedIn'] = [0];
+  echo $result[0];
 
     if ($login === 'admin') {
-      $_SESSION['admin'] = true;
-      header("Location: http://localhost/module-connexion/admin.php");
-    }else {
-      header("Location: http://localhost/module-connexion/connexion.php");
+      //$_SESSION['admin'] = true;
+      // header("Location: http://localhost/module-connexion/admin.php");
+
+    }
+    else {
+      header("Location: http://localhost/module-connexion/index.php");
     }
 
   }
+}else {
+  echo "user is not valid";
 }
 ?>
 
@@ -49,7 +58,7 @@ if ($validuser) {
    
     <h2>connexion</h2>
         
-      <form method="post">
+      <form>
         <label>
           <span>Login</span>             
           <input type="text" id="login" name='login'/>

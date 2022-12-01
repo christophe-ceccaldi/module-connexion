@@ -15,11 +15,11 @@ if (isset($_SESSION['admin']) && (isset($_SESSION['loggedIn']))){
         echo '</pre>';
     }
     elseif ($_SESSION['loggedIn'] === false){
-        header("Location: http://localhost/module-connexion/connexion.php");
+        //header("Location: http://localhost/module-connexion/connexion.php");
     }
 
 } else {
-    header("Location: http://localhost/module-connexion/connexion.php");
+    //header("Location: http://localhost/module-connexion/connexion.php");
 }
 ?>
 
