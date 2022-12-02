@@ -10,9 +10,9 @@ if (isset($_SESSION['admin']) && (isset($_SESSION['loggedIn']))){
         $query = $conn->query($search);
         $users = $query->fetch_all();
         
-        echo '<pre>';
-        var_dump($users);
-        echo '</pre>';
+        //echo '<pre>';
+        //var_dump($users);
+        //echo '</pre>';
     }
     elseif ($_SESSION['loggedIn'] === false){
         //header("Location: http://localhost/module-connexion/connexion.php");
