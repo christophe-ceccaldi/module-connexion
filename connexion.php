@@ -14,8 +14,11 @@ if ($validuser) {
   $login = $_GET["login"];
   $password = $_GET["password"];
 
+// Créer une connexion
+  //$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+  //connexionn DB on plesk
+  $conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
 
-  $conn = new mysqli("localhost", "root", "", "moduleconnexion");
   $sql = "SELECT `login`, `password` FROM utilisateurs WHERE `login` = '$login' AND `password` = '$password'";
   $result = $conn->query($sql);
 var_dump($result);
@@ -56,9 +59,9 @@ var_dump($result);
     <title>connexion</title>
   </head>
   <body>
-   
+    <!--title of my form-->
     <h2>connexion</h2>
-        
+       <!--use of  label and span in the form of connexion page-->
       <form>
         <label>
           <span>Login</span>             

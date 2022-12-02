@@ -2,16 +2,8 @@ body {
     background-color: rgb(158 173 177);
     font-family: 'Bree Serif', serif;
 }
-.erreur{
-    background-color: tomato;
-}
-
-/*label, thead, th{
-    border: 2px solid skyblue;
-    border-collapse: collapse;
-    
-    }*/
-    form{
+/*layout of my form*/
+ form{
         display: flex;
         flex-direction: column;
 
@@ -23,7 +15,7 @@ body {
     
     }
     
-
+/*layout with flex my form input (field)*/
 .mama01{
     display: flex;
     align-items: center;
@@ -31,17 +23,14 @@ body {
     flex-wrap: nowrap;
     flex-direction: column;
 }
+/* width of my form*/
 form{
     width: min-content;
 }
+/*layout of values to fill*/
 label span{
     width: 100px;
     display: inline-block;
 
 }
 
-.son01 th{
-    
-    align-items: center;
-    justify-content: space-around;
-}

@@ -11,7 +11,7 @@
     <title>header</title>
   </head>
   <body>
-
+        <!--links to be redirected in my nav-->
         <header>
             <nav>
                 <ul>

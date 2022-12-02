@@ -1,10 +1,11 @@
 
 <?php
 // Créer une conexion
-    $conn = new mysqli("localhost", "root", "", "moduleconnexion");
-    // verifier la connexion
+    //$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+    //connexionn DB on plesk
+    $conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
 
-    
+//requête pour tout sélectionner dans la DB// 
   $search = "SELECT * FROM utilisateurs";
   $query = $conn->query($search);
   $users = $query->fetch_all();
@@ -89,7 +90,7 @@
 
 
         <h2>inscriptions</h2>
-       
+       <!--champs à remplir dans le formulaire pour inscription user avec post pour récupérer les infos-->
         <form method="post">
             <label>
                 <span>Prenom</span>             
@@ -100,7 +101,7 @@
                 <span>Nom</span>
                 <input type="text" id="nom" name='nom'/>
             </label>
-
+            <!--use of label to display the values of keys (field to fill)-->
             <label>
                 <span>Login</span>
                 <input type="text" id="login" name='login'/>

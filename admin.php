@@ -1,11 +1,13 @@
 <?php
 
-session_start();
+/*session_start();
 if (isset($_SESSION['admin']) && (isset($_SESSION['loggedIn']))){
 
-    if ($_SESSION['admin'] && $_SESSION['loggedIn']) {
-    
-        $conn = new mysqli("localhost", "root", "", "moduleconnexion");
+    if ($_SESSION['admin'] && $_SESSION['login']) {
+        //create a connection to the DB//
+        //$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+        //connexionn DB on plesk
+        $conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
         $search = "SELECT * FROM utilisateurs WHERE `login` != 'admin'";
         $query = $conn->query($search);
         $users = $query->fetch_all();
@@ -14,13 +16,13 @@ if (isset($_SESSION['admin']) && (isset($_SESSION['loggedIn']))){
         //var_dump($users);
         //echo '</pre>';
     }
-    elseif ($_SESSION['loggedIn'] === false){
-        //header("Location: http://localhost/module-connexion/connexion.php");
+    elseif ($_SESSION['login'] === false){
+        header("Location: http://localhost/module-connexion/connexion.php");
     }
 
 } else {
-    //header("Location: http://localhost/module-connexion/connexion.php");
-}
+    header("Location: http://localhost/module-connexion/connexion.php");
+}*/
 ?>
 
 

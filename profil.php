@@ -4,7 +4,11 @@ session_start();
 if (!isset($_SESSION["login"])) {
     header("Location: http://localhost/module-connexion/connexion.php");
 }
-$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+//créer une connexion
+//$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+//connexionn DB on plesk
+$conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
+
 $login = $_SESSION['login'];
 
 //var_dump($_POST);
@@ -67,30 +71,31 @@ if (isset($_POST['submit'])){
 
        
 
-
+       <!--title uper of my form to midified user-->
         <h2>Modifier son profil</h2>
-
+        <!--champs à remplir dans le formulaire pour modofoer son profil user avec post pour récupérer les infos-->
         <form method="post">
+            <!--used of php in my input to field data of users who wa register in the DB yet-->
             <label>
                 <span>Prenom</span>             
                 <input type="text" id="prenom" name='prenom' value="<?php echo $prenom?>"/>
             </label>
-            
+            <!--used of php in my input to field data of users who wa register in the DB yet-->
             <label>
                 <span>Nom</span>
                 <input type="text" id="nom" name='nom' value="<?php echo $nom?>"/>
             </label>
-
+            <!--used of php in my input to field data of users who wa register in the DB yet-->     
             <label>
                 <span>Login</span>
                 <input type="text" id="login" name='login' value="<?php echo $login?>" disabled/>
             </label>
-            
+            <!--used of php in my input to field data of users who wa register in the DB yet-->
             <label>
                 <span>Password</span>
                 <input type="password" id="password" name='password' minlength="3" required value ="<?php echo $password ?>"/>
             </label>
-
+                <!--input of the submit button-->
                 <input type="submit" id="button" name='submit'/>
             </form>
     </body>
