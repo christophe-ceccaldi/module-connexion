@@ -7,7 +7,7 @@ if (!isset($_SESSION["login"])) {
 //créer une connexion
 //$conn = new mysqli("localhost", "root", "", "moduleconnexion");
 //connexionn DB on plesk
-$conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
+$conn = new mysqli("localhost", "chris", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
 
 $login = $_SESSION['login'];
 

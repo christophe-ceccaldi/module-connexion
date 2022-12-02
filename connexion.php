@@ -17,7 +17,7 @@ if ($validuser) {
 // Créer une connexion
   //$conn = new mysqli("localhost", "root", "", "moduleconnexion");
   //connexionn DB on plesk
-  $conn = new mysqli("localhost", "CC_DBusers", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
+  $conn = new mysqli("localhost", "chris", "Nowayback13", "christophe-ceccaldi_moduleconnexion");
 
   $sql = "SELECT `login`, `password` FROM utilisateurs WHERE `login` = '$login' AND `password` = '$password'";
   $result = $conn->query($sql);
