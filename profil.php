@@ -1,34 +1,54 @@
 <?php
-// Créer une conexion
-    $conn = new mysqli("localhost", "root", "", "moduleconnexion");
+session_start();
 
-//vérifier que l'utilisateur possède un login ds la DB pour savoir si user enregistrer(query pour fetch_all DB)//
-//récupérer les login dans la DB
-$search = "SELECT * FROM utilisateurs WHERE ";
-$query = $conn->query($search);
-$users = $query->fetch_all();
-//echo '<pre>';
-var_dump($users);
-//echo '</pre>';
-//création variable validusser//
-//$dblogin = $users[0];
-
-
-//pour chaque utilisateurs qui possède un login autorisent les a modifier leurs profils//
-foreach($users as $user){
-    $dbLogin = $user[0][0];
-    $validuser = $dbLogin;
-    if (isset($_POST[`login`]) && ($dbLogin == $_POST[`login`])){
-        $validuser = true; 
-    }
+if (!isset($_SESSION["login"])) {
+    header("Location: http://localhost/module-connexion/connexion.php");
 }
-   echo $validuser ;
-//verifie que  SI le login n'existe pas deja dans la DB(isset)//
-/*if (condition)
-# code...
+$conn = new mysqli("localhost", "root", "", "moduleconnexion");
+$login = $_SESSION['login'];
 
-si les conditions présédente sont vérifier alors autorise l'utilisateur à modifier ses données
-UPDATE "utilisateurs" SET "prenom", "nom", ou autres WHERE login =2*/
+//var_dump($_POST);
+
+if (isset($_POST['submit'])){
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
+    $password = $_POST['password'];
+
+    $sql = "UPDATE `utilisateurs` SET prenom = '$prenom', nom = '$nom', password = '$password' WHERE login = '$login'";
+    $updated = $conn->query($sql);
+    if ($updated) {
+        echo "user info has been updated";
+    } else {
+        echo "user info could not be updated";
+    }
+    //var_dump($result);
+}
+    else
+    {
+    
+
+        //vérifier que l'utilisateur possède un login ds la DB pour savoir si user enregistrer(query pour fetch_all DB)//
+        //récupérer tout dans la DB
+            $search = "SELECT * FROM utilisateurs WHERE login = '$login'";
+            $query = $conn->query($search);
+            $user = $query->fetch_array();
+        //echo '<pre>';
+        //var_dump($user);
+        $prenom = $user['prenom'];
+        $nom = $user['nom'];
+        $login = $user['login'];
+        $password = $user['password'];
+        //$comfirm_password = $user['comfirm_password'];
+        //echo '</pre>';
+        //création variable validusser//
+        //$dblogin = $users[0];
+        
+        
+        //pour chaque utilisateurs qui possède un login autorisent les a modifier leurs profils//
+        
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,18 +65,7 @@ UPDATE "utilisateurs" SET "prenom", "nom", ou autres WHERE login =2*/
   </head>
     <body class ="mama01">
 
-        <!-- <table>
-            <thead class ="son01">
-                <th>prenom</th>
-                <th>nom</th>
-                <th>login</th>
-                <th>password</th>
-                <th>confirm password</th>
-            </thead>
-            
-            <tbody>
-                </tbody>
-            </table> -->
+       
 
 
         <h2>Modifier son profil</h2>
@@ -64,28 +73,24 @@ UPDATE "utilisateurs" SET "prenom", "nom", ou autres WHERE login =2*/
         <form method="post">
             <label>
                 <span>Prenom</span>             
-                <input type="text" id="prenom" name='prenom'/>
+                <input type="text" id="prenom" name='prenom' value="<?php echo $prenom?>"/>
             </label>
             
             <label>
                 <span>Nom</span>
-                <input type="text" id="nom" name='nom'/>
+                <input type="text" id="nom" name='nom' value="<?php echo $nom?>"/>
             </label>
 
             <label>
                 <span>Login</span>
-                <input type="text" id="login" name='login'/>
+                <input type="text" id="login" name='login' value="<?php echo $login?>" disabled/>
             </label>
             
             <label>
                 <span>Password</span>
-                <input type="password" id="password" name='password' minlength="3" required/>
+                <input type="password" id="password" name='password' minlength="3" required value ="<?php echo $password ?>"/>
             </label>
 
-            <label>
-                <span>Comfirmpassword</span>
-                <input type="password" id="comfirm_password" name='comfirm_password' minlength="3" required/>
-            </label>
                 <input type="submit" id="button" name='submit'/>
             </form>
     </body>

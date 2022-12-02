@@ -16,7 +16,7 @@
                 <ul>
                     <li><a href="http://localhost/module-connexion/inscription.php">Inscriptions</a></li>
                     <li><a href="http://localhost/module-connexion/connexion.php">Connexion</a></li>
-                    <li>login</li>
+                    <li><a href="http://localhost/module-connexion/profil.php">Modifier ptrofil</li>
                 </ul >
             </nav>
         </header>

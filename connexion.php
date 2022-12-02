@@ -23,12 +23,12 @@ var_dump($result);
 
   if  ($result->num_rows > 0){
 
-  // $_SESSION['loggedIn'] = [0];
-  echo $result[0];
+  $_SESSION['login'] = $login;
+  //echo $result[0];
 
     if ($login === 'admin') {
       //$_SESSION['admin'] = true;
-      // header("Location: http://localhost/module-connexion/admin.php");
+      header("Location: http://localhost/module-connexion/admin.php");
 
     }
     else {
@@ -36,9 +36,10 @@ var_dump($result);
     }
 
   }
-}else {
-  echo "user is not valid";
 }
+/*else {
+  echo "user is not valid";
+}*/
 ?>
 
 
