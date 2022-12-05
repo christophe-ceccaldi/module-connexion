@@ -14,9 +14,9 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="http://localhost/module-connexion/inscription.php">Inscriptions</a></li>
-                    <li><a href="http://localhost/module-connexion/connexion.php">Connexion</a></li>
-                    <li><a href="http://localhost/module-connexion/profil.php">Modifier ptrofil</li>
+                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/module-connexion/inscription.php">Inscriptions</a></li>
+                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/module-connexion/connexion.php">Connexion</a></li>
+                    <li><a href="https://christophe-ceccaldi.students-laplateforme.io/module-connexion/profil.php">Modifier ptrofil</li>
                 </ul >
             </nav>
         </header>

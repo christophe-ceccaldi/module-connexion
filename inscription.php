@@ -53,7 +53,7 @@
 
                 if ($conn->query($sql) === TRUE) {
                     echo "les nouveaux enregistrements ajoutés avec succés";
-                    header("Location: http://module-connexion/connexion.php");
+                    header("Location: https://christophe-ceccaldi.students-laplateforme.io/module-connexion/connexion.php");
                     die();
                 } else {
                     echo "Erreur: " . $sql . "

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["login"])) {
-    header("Location: http://localhost/module-connexion/connexion.php");
+    header("Location: https://christophe-ceccaldi.students-laplateforme.io/module-connexion/connexion.php");
 }
 //créer une connexion
 //$conn = new mysqli("localhost", "root", "", "moduleconnexion");

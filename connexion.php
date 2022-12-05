@@ -31,11 +31,11 @@ var_dump($result);
 
     if ($login === 'admin') {
       //$_SESSION['admin'] = true;
-      header("Location: http://localhost/module-connexion/admin.php");
+      header("Location: https://christophe-ceccaldi.students-laplateforme.io/module-connexion/admin.php");
 
     }
     else {
-      header("Location: http://localhost/module-connexion/index.php");
+      header("Location: https://christophe-ceccaldi.students-laplateforme.io/module-connexion/index.php");
     }
 
   }
